@@ -17,8 +17,11 @@ const AuthContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   const signUp = async (email, password, confirmPassword) => {
+    if (password !== confirmPassword) {
+      throw new Error("Passwords do not match.");
+    }
     try {
-      const user = await createUserWithEmailAndPassword(auth, email, password);
+      createUserWithEmailAndPassword(auth, email, password);
       setAuthedUser(user);
     } catch (error) {
       throw new Error("Someting went wrong. Please try again.");
