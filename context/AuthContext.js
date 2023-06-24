@@ -34,9 +34,7 @@ const AuthContextProvider = ({ children }) => {
       throw new Error("Passwords do not match.");
     }
     try {
-      const user = await createUserWithEmailAndPassword(auth, email, password);
-      console.log(user);
-      setAuthedUser(user);
+      await createUserWithEmailAndPassword(auth, email, password);
     } catch (error) {
       console.log("in signup context error");
       throw new Error("Someting went wrong. Please try again.");
@@ -44,8 +42,7 @@ const AuthContextProvider = ({ children }) => {
   };
   const login = async (email, password) => {
     try {
-      const user = await signInWithEmailAndPassword(auth, email, password);
-      setAuthedUser(user);
+      await signInWithEmailAndPassword(auth, email, password);
     } catch (error) {
       throw new Error("Someting went wrong. Please try again.");
     }
@@ -54,7 +51,6 @@ const AuthContextProvider = ({ children }) => {
   const logout = async () => {
     try {
       await signOut(auth);
-      setAuthedUser(null);
     } catch (error) {
       throw new Error("Someting went wrong. Please try again.");
     }
