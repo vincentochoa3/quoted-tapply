@@ -2,6 +2,7 @@
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { addData } from "../../firebase";
 
 const SignUpPage = () => {
   const [email, setEmail] = useState("");
@@ -14,7 +15,9 @@ const SignUpPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await signUp(email, password, confirmPassword);
+      const { user } = await signUp(email, password, confirmPassword);
+      const data = { userId: user.uid, email };
+      await addData("users", user.uid, data);
       router.push("/");
     } catch (error) {
       console.log("in signup error");

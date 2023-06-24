@@ -34,7 +34,7 @@ const AuthContextProvider = ({ children }) => {
       throw new Error("Passwords do not match.");
     }
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      return await createUserWithEmailAndPassword(auth, email, password);
     } catch (error) {
       console.log("in signup context error");
       throw new Error("Someting went wrong. Please try again.");

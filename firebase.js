@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { getFirestore, doc, setDoc } from "firebase/firestore";
 
 // import { getAnalytics } from "firebase/analytics";
 
@@ -14,6 +15,22 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 export const auth = getAuth(app);
 
+export const addData = async (collection, id, data) => {
+  let result = null;
+  let error = null;
+  console.log("PARAMS", collection, id, data, db);
+
+  try {
+    console.log("IN ADD DATA TRY");
+    result = await setDoc(doc(db, collection, id), data);
+    console.log("Document written with ID: ", result);
+  } catch (e) {
+    error = e;
+  }
+
+  return { result, error };
+};
 // const analytics = getAnalytics(app);
