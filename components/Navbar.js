@@ -1,17 +1,35 @@
+"use client";
 import React from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/AuthContext";
 
 const Navbar = () => {
+  const { authedUser, logout } = useAuth();
+  const router = useRouter();
+
+  const handleSignout = async () => {
+    await logout();
+    router.push("/");
+  };
+
   return (
     <div className="w-full h-16 flex justify-between items-center bg-slate-100 p-4 shadow-sm">
       <div>
-        <a href="/" className="font-bold">
+        <Link href="/" className="font-bold">
           "Quoted"
-        </a>
+        </Link>
       </div>
       <div>
-        <a href="/sign-in" className="font-semibold">
-          Login
-        </a>
+        {authedUser ? (
+          <button onClick={handleSignout} className="font-semibold">
+            Logout
+          </button>
+        ) : (
+          <Link href="/sign-in" className="font-semibold">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );
