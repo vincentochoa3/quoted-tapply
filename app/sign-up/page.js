@@ -29,7 +29,7 @@ const SignUpPage = () => {
   return (
     <div className="flex flex-col gap-12 w-full max-w-[500px]">
       <div className="flex flex-col gap-1">
-        <h1 className="text-2xl text-blue-600 font-semibold">Sign Up</h1>
+        <h1 className="text-2xl font-semibold">Sign Up</h1>
         <span className="text-sm text-gray-400">
           Dont have an account?
           <Link href="/sign-in" className="ml-1 text-blue-600 hover:underline">
