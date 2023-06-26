@@ -2,7 +2,7 @@
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { addData } from "../../firebase";
+import { addData } from "../../utils/firebaseUtils";
 
 const SignUpPage = () => {
   const [email, setEmail] = useState("");
@@ -20,14 +20,14 @@ const SignUpPage = () => {
       await addData("users", user.uid, data);
       router.push("/");
     } catch (error) {
-      console.log("in signup error");
+      console.log(error);
       setError(error);
     }
   };
 
   return (
     <div className="flex flex-col gap-4 w-full max-w-[500px]">
-      <h1 className="text-lg font-bold">Sign Up for "Quoted"</h1>
+      <h1 className="text-lg font-bold">Sign Up for &quot;Quoted&quot;</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-2">
         <label htmlFor="email" className="font-semibold">
           Email

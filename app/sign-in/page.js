@@ -24,7 +24,7 @@ const SignInPage = () => {
 
   return (
     <div className="flex flex-col gap-4 w-full max-w-[500px]">
-      <h1 className="text-lg font-bold">Login to "Quoted"</h1>
+      <h1 className="text-lg font-bold">Login to &quot;Quoted&quot;</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-2">
         <label htmlFor="email" className="font-semibold">
           Email

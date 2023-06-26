@@ -17,7 +17,7 @@ const Navbar = () => {
     <div className="w-full h-16 flex justify-between items-center bg-slate-100 p-4 shadow-sm">
       <div>
         <Link href="/" className="font-bold">
-          "Quoted"
+          &quot;Quoted&quot;
         </Link>
       </div>
       <div>
