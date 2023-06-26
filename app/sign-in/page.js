@@ -23,32 +23,37 @@ const SignInPage = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4 w-full max-w-[500px]">
-      <h1 className="text-lg font-bold">Login to &quot;Quoted&quot;</h1>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-2">
-        <label htmlFor="email" className="font-semibold">
-          Email
-        </label>
-        <input
-          id="email"
-          type="email"
-          placeholder="Enter email..."
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="border rounded-sm p-2"
-        />
-        <label htmlFor="password" className="font-semibold">
-          Password
-        </label>
-        <input
-          id="password"
-          type="password"
-          placeholder="Enter password..."
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="border rounded-sm p-2"
-        />
-        <button className="p-2 bg-blue-700 text-white rounded-md">
+    <div className="flex flex-col gap-8 w-full max-w-[500px]">
+      <h1 className="text-2xl text-blue-600 font-semibold">Login</h1>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <div className="flex flex-col">
+          <label htmlFor="email" className="text-sm text-blue-600">
+            Email
+          </label>
+          <input
+            id="email"
+            type="email"
+            placeholder="Enter email..."
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="border rounded-sm p-2"
+          />
+        </div>
+        <div className="flex flex-col">
+          <label htmlFor="password" className="text-sm text-blue-600">
+            Password
+          </label>
+          <input
+            id="password"
+            type="password"
+            placeholder="Enter password..."
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="border rounded-sm p-2"
+          />
+        </div>
+        <p className={`hidden ${error && "block"}`}>ksjdnfkjdsnc</p>
+        <button className="self-end w-1/3 p-2 bg-blue-600 text-white rounded-md">
           Submit
         </button>
       </form>
