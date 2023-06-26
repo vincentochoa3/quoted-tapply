@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <AuthContextProvider>
           <Navbar />
-          <div className="flex flex-col min-h-[calc(100vh-4rem)] items-center justify-between p-4">
+          <div className="flex flex-col min-h-[calc(100vh-4rem)] items-center justify-between p-6">
             {children}
           </div>
         </AuthContextProvider>

@@ -23,11 +23,22 @@ const SignInPage = () => {
   };
 
   return (
-    <div className="flex flex-col gap-8 w-full max-w-[500px]">
-      <h1 className="text-2xl text-blue-600 font-semibold">Login</h1>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        <div className="flex flex-col">
-          <label htmlFor="email" className="text-sm text-blue-600">
+    <div className="flex flex-col gap-12 w-full max-w-[500px]">
+      <div className="flex flex-col gap-1">
+        <h1 className="text-2xl text-blue-600 font-semibold">Login</h1>
+        <span className="text-sm text-gray-400">
+          Dont have an account?
+          <Link href="/sign-up" className="ml-1 text-blue-600 hover:underline">
+            Sign Up
+          </Link>
+        </span>
+      </div>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+        <div className="flex flex-col gap-2">
+          <label
+            htmlFor="email"
+            className="text-sm text-gray-400 font-semibold"
+          >
             Email
           </label>
           <input
@@ -36,11 +47,14 @@ const SignInPage = () => {
             placeholder="Enter email..."
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="border rounded-sm p-2"
+            className="border-b-2 p-2 text-blue-600 focus:border-blue-600 focus:outline-none"
           />
         </div>
-        <div className="flex flex-col">
-          <label htmlFor="password" className="text-sm text-blue-600">
+        <div className="flex flex-col gap-2">
+          <label
+            htmlFor="password"
+            className="text-sm text-gray-400 font-semibold"
+          >
             Password
           </label>
           <input
@@ -49,11 +63,11 @@ const SignInPage = () => {
             placeholder="Enter password..."
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="border rounded-sm p-2"
+            className="border-b-2 p-2 text-blue-600 focus:border-blue-600 focus:outline-none"
           />
         </div>
-        <p className={`hidden ${error && "block"}`}>ksjdnfkjdsnc</p>
-        <button className="self-end w-1/3 p-2 bg-blue-600 text-white rounded-md">
+        <p className={`hidden ${error && "block"}`}>{error}</p>
+        <button className="self-end w-1/3 p-2 border-2 border-blue-600 text-blue-600 rounded-md font-semibold hover:bg-blue-50">
           Submit
         </button>
       </form>
