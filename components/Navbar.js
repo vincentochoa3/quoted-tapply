@@ -24,7 +24,7 @@ const Navbar = () => {
         {authedUser ? (
           <button
             onClick={handleSignout}
-            className="font-semibold p-2 border-2 border-blue-600"
+            className="text-sm font-semibold py-2 px-3 bg-white border-2 text-blue-600 border-blue-600 rounded-md hover:bg-blue-50"
           >
             Logout
           </button>
