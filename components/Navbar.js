@@ -20,7 +20,10 @@ const Navbar = () => {
           &quot;Quoted&quot;
         </Link>
       </div>
-      <div>
+      <div className="flex items-center gap-3">
+        <Link href="/settings" className="text-sm font-semibold">
+          Settings
+        </Link>
         {authedUser ? (
           <button
             onClick={handleSignout}
