@@ -9,8 +9,8 @@ const Navbar = () => {
   const router = useRouter();
 
   const handleSignout = async () => {
-    await logout();
     router.push("/");
+    await logout();
   };
 
   return (
@@ -21,9 +21,11 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="flex items-center gap-3">
-        <Link href="/settings" className="text-sm font-semibold">
-          Settings
-        </Link>
+        {authedUser ? (
+          <Link href="/settings" className="text-sm font-semibold">
+            Settings
+          </Link>
+        ) : null}
         {authedUser ? (
           <button
             onClick={handleSignout}
